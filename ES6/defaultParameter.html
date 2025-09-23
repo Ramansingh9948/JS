@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arrow Function in JavaScript</title>
+    <title>Default Parameter</title>
 </head>
 <body>
     <h1 id="ram"></h1>
+
     <script>
-        let add = (a,b)=>a+b ;
-        document.getElementById("ram").innerHTML = add(3,4);
+        let multiply = (a=5,b=5) => a*b; //default argument;
+        document.getElementById("ram").innerText =multiply(5);
+
     </script>
 </body>
 </html>

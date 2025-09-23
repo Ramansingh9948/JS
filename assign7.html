@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <p class="name"></p>
+    <script>
+        const Branch = prompt("Enter your branch").toLocaleUpperCase();
+        const student =
+            [
+                s1 = {
+                    "name": 'Raman',
+                    'branch': 'CSE',
+                    'roll': 1
+                },
+                s2 = {
+                    "name": 'Sachin',
+                    'branch': 'IT',
+                    'roll': 1
+                },
+                s3 = {
+                    "name": 'Siddhant',
+                    'branch': 'CSE',
+                    'roll': 3
+                },
+                s4 = {
+                    "name": 'Rishabh',
+                    'branch': 'CS',
+                    'roll': 4
+                },
+                s5 = {
+                    "name": 'Vikram',
+                    'branch': 'CS',
+                    'roll': 5
+                }
+            ]
+
+        let ram = [];
+
+
+        for (i = 0; i < student.length; i++) {
+            if (student[i].branch === Branch) {
+                ram.push(student[i]);
+            }
+
+        }
+        console.log(ram);
+
+        for (i = 0; i < ram.length; i++) {
+            let p = document.createElement("p");
+            p.innerText = ram[i].name;
+            document.body.appendChild(p);
+        }
+
+
+    </script>
+</body>
+
+</html>

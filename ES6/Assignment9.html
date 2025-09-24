@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 9 (Resume Builder)</title>
+    <style>
+        #pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-image: url("https://www.thinkncollab.com/new_img.png.jpg");
+            background-size: cover;
+            background-position: center;
+            margin: auto;
+        }
+        
+        .resume-container {
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .input-section {
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-section">
+        <input type="text" placeholder="Enter Language 1" id="lang">
+        <input type="text" placeholder="Enter Language 2" id="lang2">
+        <input type="text" placeholder="Enter Language 3" id="lang3">
+        <br><br>
+        <button onclick="generateResume()">Submit</button>
+    </div>
+
+    <div id="resume" style="display: none;">
+        <!-- Resume will be generated here -->
+    </div>
+
+    <script>
+        function generateResume() {
+            let lang1 = document.getElementById("lang").value;
+            let lang2 = document.getElementById("lang2").value;
+            let lang3 = document.getElementById("lang3").value;
+            
+            display(lang1, lang2, lang3);
+        }
+
+        function display(lang1, lang2, lang3) {
+            const resumeDiv = document.getElementById("resume");
+            
+            resumeDiv.innerHTML = `
+                <div class="resume-container">
+                    <div id="pic"></div>
+                    <h2>Raman Singh</h2>
+                    <h3>Full Stack Developer</h3>
+                    <h2>Languages Known</h2>
+                    <p>1. ${lang1 || 'Not specified'}</p>
+                    <p>2. ${lang2 || 'Not specified'}</p>
+                    <p>3. ${lang3 || 'Not specified'}</p>
+                </div>
+            `;
+            
+            resumeDiv.style.display = 'block';
+            
+            // Hide input section after generating resume
+            document.querySelector('.input-section').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

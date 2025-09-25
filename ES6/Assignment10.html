@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To DO List</title>
+    <style>
+        /* styling in the form of cards */
+        .displayNone {
+            display: none;
+        }
+
+        .displayBlock {
+            display: block;
+        }
+
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #main {
+            margin: auto;
+            width: 50%;
+            border: 3px solid #73AD21;
+            padding: 10px;
+            box-shadow: 10px 10px 5px grey;
+            border-radius: 10px;
+        }
+
+        #moreInput {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 70%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        img {
+            width: 45px;
+            height: 45px;
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            &:hover {
+                background-color: #f1f1f1;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- To DO List -->
+    <h1>To Do List</h1>
+    <div id="main">
+        <div id="basic">
+            <img src="taskicon.png" alt="taskicon">
+            <input type="text" id="taskInput" placeholder="Enter a task">
+            <button onclick="AddMore()" id="addMore">+</button>
+            <div id="moreInput">
+            </div>
+
+
+        </div>
+        <button onclick="AddList()" class="displayNone">Add Listed Items</button>
+    </div>
+
+    <ul id="ul"></ul>
+
+
+
+    <script>
+        function AddMore() {
+
+            const inputBox = document.createElement("input")
+            inputBox.setAttribute("id", "taskInput")
+            const button = document.createElement("button");
+            button.setAttribute("id", "addMore");
+            button.innerText = "+";
+            button.setAttribute("onclick", "AddMore()");
+            const div = document.getElementById("moreInput");
+            div.appendChild(inputBox);
+            div.appendChild(button);
+            div.appendChild(document.createElement("br"));
+            document.getElementById("addMore").style.display = "block";
+            document.querySelector("button.displayNone").style.display = "block";
+
+        }
+        function AddList() {
+            const inputs = document.querySelectorAll("input");
+
+            const ul = document.getElementById("ul");
+            inputs.forEach(input => {
+                const li = document.createElement("li");
+                li.innerText = input.value;
+                console.log(input.value);
+                ul.appendChild(li);
+            });
+            document.body.appendChild(ul);
+            document.getElementById("moreInput").innerHTML = "";
+            document.getElementById("addMore").style.display = "none";
+            document.getElementById("main").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

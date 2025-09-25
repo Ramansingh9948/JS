@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallBack()</title>
+</head>
+
+<body>
+
+
+    <script>
+        // function sum(a,b) {
+        //     console.log(a+b);
+        //     document.write(a+b);
+        // }
+        // function Calculator(a,b, sumCallBack) {
+        //      sumCallBack(sum(a,b));
+
+        // }
+        // Calculator(2,3);
+
+        // callback hell
+        function getData(dataId, callback) {
+            setTimeout(() => {
+                console.log("DataId: " + dataId);
+                if (callback) {
+                    callback();
+                }
+            }, 2000);
+
+        }
+        getData(1, () => {
+            console.log("Callback for DataId 1");
+
+            getData(2, () => {
+                console.log("Callback for DataId 2");
+
+                getData(3, () => {
+                    console.log("Callback for DataId 3");
+                    getData(4, () => {
+                        console.log("Callback for DataId 4");
+                    })
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

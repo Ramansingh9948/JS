@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync vs Async</title>
+</head>
+<body>
+    
+
+    <script>
+        console.log("Start");
+
+        
+        const Shyam = setTimeout(() =>{
+            console.log("Task 2 Complete");
+        }, 2000);
+
+        function Ram  (req, res) {
+            console.log("Task 1 Complete");
+        };
+        
+        Ram();
+    </script>
+</body>
+</html>
